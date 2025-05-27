@@ -21,7 +21,7 @@ exports.registerUser = async (req, res) => {
     const errors = validateCredentials(email, password);
 
     if (errors.length > 0) {
-        return res.status(400).json({ error: 'Invalid input', details: errors });
+        return res.status(400).json({ error: 'Ogiltig inmatning', details: errors });
     }
 
     try {
@@ -33,9 +33,10 @@ exports.registerUser = async (req, res) => {
         const user = new User({ email, password });
         await user.save();
 
-        res.status(201).json({ message: 'User created!' });
+        res.status(201).json({ message: 'Användare skapad!' });
     } catch (err) {
-        res.status(500).json({ error: 'Server error' });
+        console.error('Fel vid registrering:', err);
+        res.status(500).json({ error: 'Serverfel' });
     }
 };
 
@@ -45,7 +46,7 @@ exports.loginUser = async (req, res) => {
     const errors = validateCredentials(email, password);
 
     if (errors.length > 0) {
-        return res.status(400).json({ error: 'Invalid input', details: errors });
+        return res.status(400).json({ error: 'Ogiltig inmatning', details: errors });
     }
 
     try {
@@ -55,8 +56,9 @@ exports.loginUser = async (req, res) => {
         }
 
         const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
-        res.status(200).json({ message: 'User logged in', token });
+        res.status(200).json({ message: 'Användare är inloggad', token });
     } catch (err) {
-        res.status(500).json({ error: 'Server error' });
+        console.error('Fel vid inloggning:', err);
+        res.status(500).json({ error: 'Serverfel' });
     }
 };

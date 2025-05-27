@@ -17,6 +17,10 @@ app.use('/api/users', userRoutes);
 const menuItemRoutes = require('./routes/menuItemRoutes');
 app.use('/api/menu', menuItemRoutes);
 
+//Hämta routes och routingregler för Order.
+const orderRoutes = require('./routes/orderRoutes');
+app.use('/api/order', orderRoutes);
+
 //Ansluter till MongoDB Atlas
 mongoose.connect(process.env.DATABASE)
   .then(() => {
