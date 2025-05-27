@@ -3,11 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+//Skapar express-app
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+//Ansluter till MongoDB Atlas
 mongoose.connect(process.env.DATABASE)
   .then(() => {
     console.log('Ansluten till MongoDB Atlas');
