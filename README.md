@@ -6,7 +6,7 @@ CRUD-funktionalitet finns för menyhantering och ordrar. Användarhantering inne
 
 ## Länk
 
-En liveversion av API:t finns tillgänglig på följande URL: 
+En liveversion av API:t finns tillgänglig på följande URL: https://dt207g-project-restapi.onrender.com/
 
 ## Installation, databas
 
