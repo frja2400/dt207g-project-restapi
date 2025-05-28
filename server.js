@@ -27,11 +27,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
+
+const port = process.env.PORT || 3000;
+
 //Ansluter till MongoDB Atlas
 mongoose.connect(process.env.DATABASE)
   .then(() => {
     console.log('Ansluten till MongoDB Atlas');
-    app.listen(3000, () => console.log('Servern körs på port 3000'));
+    app.listen(port, () => console.log(`Servern körs på port ${port}`));
   })
   .catch((err) => {
     console.error('Fel vid anslutning till MongoDB:', err.message);
