@@ -55,7 +55,7 @@ exports.loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Felaktig e-post eller lösenord' });
         }
 
-        const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
         res.status(200).json({ message: 'Användare är inloggad', token });
     } catch (err) {
         console.error('Fel vid inloggning:', err);
