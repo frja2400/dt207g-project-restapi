@@ -7,7 +7,11 @@ const path = require('path');
 //Skapar express-app
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 //Alla anrop som börjar med /api/users ska skickas vidare för hantering i userRoutes.
