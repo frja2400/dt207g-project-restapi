@@ -31,8 +31,8 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['bekräftad', 'förbereds', 'levererad', 'avbeställd'],
-    default: 'bekräftad'
+    enum: ['Mottagen', 'Behandlas', 'Levererad'],
+    default: 'Mottagen'
   },
   totalPrice: {
     type: Number,
