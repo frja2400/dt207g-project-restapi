@@ -86,5 +86,5 @@ För att installera och köra lokalt:
 ## Säkerhet och validering
 
 - JWT-skyddade routes för adminfunktioner.
-- Hasning av löseord med bcrypt.
+- Hashing av lösenord med bcrypt.
 - Validering av e-post och lösenord.
